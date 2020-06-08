@@ -1,0 +1,11 @@
+version: "3.7"
+services: 
+  main:
+    build:
+      context: .
+      target: development
+    command: deno run -A src/serve.ts
+    ports: 
+      - "8000:8000"
+    volumes:
+      - "./src:/app/src"

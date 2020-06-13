@@ -1,13 +1,13 @@
-import { Status } from "https://deno.land/std/http/mod.ts";
 import { ApiContext, Handler } from "./imports/deno_json_api.ts";
+import { createSlackMessageDto } from "./slack_message_dto.ts";
+import { SlackService } from "./slack_service.ts";
 
 export class SlackHandler implements Handler {
-  async handler({ request }: ApiContext) {
-    if (request.url === "/hello") {
-      return {
-        status: Status.OK,
-        body: { message: "hello world" },
-      };
+  constructor(private readonly slackService: SlackService) {}
+  async handler({ request, body }: ApiContext) {
+    if (request.url === "/slack") {
+      const dto = createSlackMessageDto(body);
+      return this.slackService.handleCommand(dto);
     }
   }
 }

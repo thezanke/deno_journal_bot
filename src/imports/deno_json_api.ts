@@ -1,1 +1,1 @@
-export * from "../../../deno_json_api/src/mod.ts";
+export * from "https://deno.land/x/gh:thezanke:deno_json_api@master/src/mod.ts";

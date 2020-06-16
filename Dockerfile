@@ -7,6 +7,7 @@ RUN curl -fsSL https://deno.land/x/install/install.sh | sh
 RUN deno install --allow-read --allow-run --allow-write --allow-net -f --unstable https://deno.land/x/denon@v2.1.0/denon.ts
 ENV PATH="/root/.deno/bin:${PATH}"
 COPY src src
+RUN deno cache src/serve.ts
 
 FROM development
 CMD deno run --allow-http src/serve.ts

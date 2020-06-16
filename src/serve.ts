@@ -8,5 +8,5 @@ const api = new JsonApi({ port });
 const slackService = new SlackService(api);
 api.addHandler(new SlackHandler(slackService));
 
-console.log(`listening on ${port}`)
+console.log(`listening on ${port}!`);
 await api.start();

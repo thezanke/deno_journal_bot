@@ -4,7 +4,7 @@ services:
     build:
       context: .
       target: development
-    command: deno run -A src/serve.ts
+    command: denon run -A src/serve.ts
     ports: 
       - "8000:8000"
     volumes:
